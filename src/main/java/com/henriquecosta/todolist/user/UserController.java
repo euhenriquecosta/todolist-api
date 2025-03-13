@@ -6,11 +6,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/users")
 public class UserController {
 
-  /**
-   * String (texto) Integer (int) numeros inteiros Double (double) numberos 0.000 Float (float)
-   * numeros 0.00 chat (A C) Date (data) void (sem retorno)
-   */
-
   @PostMapping("/create")
   public void create(@RequestBody UserModel userModel) {
     System.out.printf(
