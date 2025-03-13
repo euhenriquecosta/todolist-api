@@ -15,6 +15,6 @@ public class UserController {
   public void create(@RequestBody UserModel userModel) {
     System.out.printf(
         "As informações de usuário são as seguintes:\n\nName: %s\nUsername: %s\nPassword: %s",
-        userModel.name, userModel.username, userModel.password);
+        userModel.getName(), userModel.getUsername(), userModel.getPassword());
   }
 }
