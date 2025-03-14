@@ -59,6 +59,17 @@ public class TaskController {
       @PathVariable UUID id) {
     var task = this.taskRepository.findById(id).orElse(null);
 
+    if (task == null) {
+      ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Tarefa não encontrada!");
+    }
+
+    var idUser = request.getAttribute("idUser");
+
+    if (task == null || !task.getIdUser().equals(idUser)) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+          .body("Usuário não tem permissão para alterar a tarefa ou tarefa não encontrada");
+    }
+
     Utils.copyNullProperties(taskModel, task);
 
     return ResponseEntity.status(HttpStatus.OK).body(this.taskRepository.save(task));
