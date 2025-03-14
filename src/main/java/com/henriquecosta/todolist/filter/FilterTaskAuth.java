@@ -18,13 +18,14 @@ public class FilterTaskAuth extends OncePerRequestFilter {
   @Autowired
   private IUserRepository userRepository;
 
+  @SuppressWarnings("null")
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
       FilterChain filterChain) throws ServletException, IOException {
 
     var servletPath = request.getServletPath();
 
-    if (servletPath.contains("/tasks/")) {
+    if (servletPath.startsWith("/tasks/")) {
       // Pegar a autorização
 
       var authorization = request.getHeader("Authorization");
