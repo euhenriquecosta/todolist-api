@@ -10,7 +10,7 @@ import lombok.Data;
 @Entity(name = "tb_tasks")
 public class TaskModel {
   @Id
-  @GeneratedValue(generator = "UUID")
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private UUID id;
 
   @Column(length = 250)

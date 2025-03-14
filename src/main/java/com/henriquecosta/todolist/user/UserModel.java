@@ -11,7 +11,7 @@ import lombok.Data;
 public class UserModel {
 
   @Id
-  @GeneratedValue(generator = "UUID")
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private UUID id;
 
   @Column(unique = true)
