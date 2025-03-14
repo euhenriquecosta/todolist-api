@@ -74,4 +74,20 @@ public class TaskController {
 
     return ResponseEntity.status(HttpStatus.OK).body(this.taskRepository.save(task));
   }
+
+  @SuppressWarnings("rawtypes")
+  @DeleteMapping("/delete/{id}")
+  public ResponseEntity delete(@PathVariable UUID id) {
+    if (id == null) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+          .body("Para fazer a deleção da tarefa é necessário a tarefa");
+    }
+
+    try {
+      taskRepository.deleteById(id);
+      return ResponseEntity.status(HttpStatus.OK).body("Task deletada com sucesso");
+    } catch (Exception e) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao deletar a tarefa");
+    }
+  }
 }
