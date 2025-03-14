@@ -20,12 +20,12 @@ public class TaskModel {
   private String title;
   private String priority;
 
-  private LocalDateTime start_at;
-  private LocalDateTime end_at;
+  private LocalDateTime startAt;
+  private LocalDateTime endAt;
 
-  private UUID id_user;
+  private UUID idUser;
 
   @CreationTimestamp
-  private LocalDateTime created_at;
+  private LocalDateTime createdAt;
 
 }
