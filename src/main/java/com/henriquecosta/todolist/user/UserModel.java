@@ -20,6 +20,6 @@ public class UserModel {
   private String password;
 
   @CreationTimestamp
-  private LocalDateTime created_at;
+  private LocalDateTime createdAt;
 
 }
